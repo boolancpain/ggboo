@@ -1,0 +1,32 @@
+# server
+server :
+  port : 12324
+
+# spring
+spring :
+  main :
+    banner-mode : log
+  datasource :
+    driver-class-name : org.mariadb.jdbc.Driver
+    url : jdbc:mysql://localhost:3306/fyodb?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul
+    username : fyouser
+    password : fyopwd1004
+  jpa :
+    hibernate :
+      ddl-auto : update
+    properties :
+      hibernate :
+        "[show_sql]" : true # sql 출력 옵션
+
+# logback configuration
+# logback.xml 과 logback-spring.xml 의 차이는 환경 설정을 적용하는 시점에 차이가 있다.
+# logback.xml은 Web Application이 시작되고 Spring이 구동되기 전에 환경 설정을 적용하기 때문에 application.properties나 application.yml 내 속성을 불러올 수 없지만
+# logback-spring.xml은 Spring 구동 이후에 환경 설정을 적용하기 때문에 application.properties나 application.yml 내 속성을 불러올 수 있다.
+# 해당 프로젝트에서는 로그 파일명을 application.yml에 정의했기 때문에 logback-spring.xml로 사용했다.
+logging :
+  file :
+    path : logs
+    name : ggboo
+  level :
+    com :
+      fyo : info
