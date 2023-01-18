@@ -16,7 +16,7 @@ public class MemberResponseDto {
 	 * @author boolancpain
 	 */
 	@Getter
-	static class TokenDto {
+	public static class TokenDto {
 		
 		private String token;
 		

@@ -2,6 +2,8 @@
 spring :
   main :
     banner-mode : console # banner 출력
+  datasource :
+    url : jdbc:mysql://192.168.56.101:3306/fyodb
   jpa :
     properties :
       hibernate :
