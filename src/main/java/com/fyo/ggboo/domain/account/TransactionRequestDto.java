@@ -17,27 +17,25 @@ import lombok.Getter;
  * @author boolancpain
  */
 public class TransactionRequestDto {
-	
-	/**
-	 * Transaction Create Dto
-	 * 
-	 * @author boolancpain
-	 */
-	@Getter
-	static class TransactionCreateDto {
-		
-		@NotNull(message = "{validation.required}")
-		@Digits(integer = 10, fraction = 0, message = "{validation.id}")
-		private Long categoryId;
-		
-		@Positive(message = "{validation.transaction.cost.positive}")
-		@Max(value = 999999999, message = "{validation.transaction.cost.max}")
-		private int cost;
-		
-		@Length(max = 255, message = "{validation.transaction.remark}")
-		private String remark;
-		
-		@DateConstraint(message = "{validation.date}")
-		private String transactedDate;
-	}
+    /**
+     * Transaction Create Dto
+     * 
+     * @author boolancpain
+     */
+    @Getter
+    static class TransactionCreateDto {
+        @NotNull(message = "{validation.required}")
+        @Digits(integer = 10, fraction = 0, message = "{validation.id}")
+        private Long categoryId;
+
+        @Positive(message = "{validation.transaction.cost.positive}")
+        @Max(value = 999999999, message = "{validation.transaction.cost.max}")
+        private int cost;
+
+        @Length(max = 255, message = "{validation.transaction.remark}")
+        private String remark;
+
+        @DateConstraint(message = "{validation.date}")
+        private String transactedDate;
+    }
 }

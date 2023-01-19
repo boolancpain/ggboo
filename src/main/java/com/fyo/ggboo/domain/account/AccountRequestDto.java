@@ -10,27 +10,24 @@ import lombok.Getter;
  * @author boolancpain
  */
 public class AccountRequestDto {
-	
-	/**
-	 * Account Search Dto
-	 * 
-	 * @author boolancpain
-	 */
-	@Getter
-	static class AccountDto {
-		
-		private Long accountId;
-	}
-	
-	/**
-	 * Transaction Search Dto
-	 * 
-	 * @author boolancpain
-	 */
-	@Getter
-	static class AccountTransactionDto {
-		
-		@DateConstraint(message = "{validation.date}")
-		private String date;
-	}
+    /**
+     * Account Search Dto
+     * 
+     * @author boolancpain
+     */
+    @Getter
+    static class AccountDto {
+        private Long accountId;
+    }
+
+    /**
+     * Transaction Search Dto
+     * 
+     * @author boolancpain
+     */
+    @Getter
+    static class AccountTransactionDto {
+        @DateConstraint(message = "{validation.date}")
+        private String date;
+    }
 }

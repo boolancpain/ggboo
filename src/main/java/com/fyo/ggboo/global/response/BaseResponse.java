@@ -14,11 +14,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class BaseResponse {
-	
-	private String message;
-	
-	@Builder
-	public BaseResponse(String message) {
-		this.message = message;
-	}
+    private String message;
+
+    @Builder
+    public BaseResponse(String message) {
+        this.message = message;
+    }
 }

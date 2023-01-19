@@ -6,6 +6,5 @@ package com.fyo.ggboo.global.enums;
  * @author boolancpain
  */
 public enum MemberRole {
-	
-	ROLE_USER, ROLE_ADMIN;
+    ROLE_USER, ROLE_ADMIN;
 }

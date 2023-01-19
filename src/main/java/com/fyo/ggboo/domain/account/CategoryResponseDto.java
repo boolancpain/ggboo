@@ -9,26 +9,24 @@ import lombok.Getter;
  * @author boolancpain
  */
 public class CategoryResponseDto {
-	
-	/**
-	 * Category Info Dto
-	 * 
-	 * @author boolancpain
-	 */
-	@Getter
-	static class CategoryInfoDto {
-		
-		private Long categoryId;
-		
-		private String alias;
-		
-		private int sequence;
-		
-		@Builder
-		public CategoryInfoDto(Long categoryId, String alias, int sequence) {
-			this.categoryId = categoryId;
-			this.alias = alias;
-			this.sequence = sequence;
-		}
-	}
+    /**
+     * Category Info Dto
+     * 
+     * @author boolancpain
+     */
+    @Getter
+    static class CategoryInfoDto {
+        private Long categoryId;
+
+        private String alias;
+
+        private int sequence;
+
+        @Builder
+        public CategoryInfoDto(Long categoryId, String alias, int sequence) {
+            this.categoryId = categoryId;
+            this.alias = alias;
+            this.sequence = sequence;
+        }
+    }
 }

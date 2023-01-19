@@ -24,25 +24,24 @@ import com.fyo.ggboo.infra.message.CustomMessageSource;
  */
 @Component
 public class CustomErrorController extends BasicErrorController {
-	
-	@Autowired
-	private CustomMessageSource customMessageSource;
-	
-	public CustomErrorController(ErrorAttributes errorAttributes, ServerProperties serverProperties) {
-		super(errorAttributes, serverProperties.getError());
-	}
-	
-	/**
-	 * 500 error 응답 객체 변환
-	 */
-	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	@Override
-	public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
-		HttpStatus status = getStatus(request);
-		
-		Map<String, Object> body = new HashMap<>();
-		body.put("message", customMessageSource.getMessage("error"));
-		
-		return ResponseEntity.status(status).body(body);
-	}
+    @Autowired
+    private CustomMessageSource customMessageSource;
+
+    public CustomErrorController(ErrorAttributes errorAttributes, ServerProperties serverProperties) {
+        super(errorAttributes, serverProperties.getError());
+    }
+
+    /**
+     * 500 error 응답 객체 변환
+     */
+    @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @Override
+    public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
+        HttpStatus status = getStatus(request);
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("message", customMessageSource.getMessage("error"));
+
+        return ResponseEntity.status(status).body(body);
+    }
 }

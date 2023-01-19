@@ -28,32 +28,31 @@ import lombok.Getter;
 @Getter
 @DynamicUpdate
 public class Account extends BaseTimeEntity {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@OneToMany(mappedBy = "account")
-	private List<Member> members;
-	
-	@OneToMany(mappedBy = "account")
-	private List<Transaction> transactions;
-	
-	@OneToMany
-	@JoinColumn(name = "accountId")
-	private List<Category> categories;
-	
-	@Builder
-	public Account() {
-		
-	}
-	
-	/**
-	 * 장부의 회원 목록에서 제거
-	 * 
-	 * @param memberId
-	 */
-	public void removeMember(Long memberId) {
-		this.members.removeIf(member -> member.getId() == memberId);
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToMany(mappedBy = "account")
+    private List<Member> members;
+
+    @OneToMany(mappedBy = "account")
+    private List<Transaction> transactions;
+
+    @OneToMany
+    @JoinColumn(name = "accountId")
+    private List<Category> categories;
+
+    @Builder
+    public Account() {
+        
+    }
+
+    /**
+     * 장부의 회원 목록에서 제거
+     * 
+     * @param memberId
+     */
+    public void removeMember(Long memberId) {
+        this.members.removeIf(member -> member.getId() == memberId);
+    }
 }

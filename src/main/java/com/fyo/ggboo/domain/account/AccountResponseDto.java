@@ -9,20 +9,18 @@ import lombok.Getter;
  * @author boolancpain
  */
 public class AccountResponseDto {
-	
-	/**
-	 * Account Info Dto
-	 * 
-	 * @author boolancpain
-	 */
-	@Getter
-	static class AccountInfoDto {
-		
-		private Long accountId;
-		
-		@Builder
-		public AccountInfoDto(Long accountId) {
-			this.accountId = accountId;
-		}
-	}
+    /**
+     * Account Info Dto
+     * 
+     * @author boolancpain
+     */
+    @Getter
+    static class AccountInfoDto {
+        private Long accountId;
+
+        @Builder
+        public AccountInfoDto(Long accountId) {
+            this.accountId = accountId;
+        }
+    }
 }

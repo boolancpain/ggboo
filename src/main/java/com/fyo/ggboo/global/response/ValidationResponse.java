@@ -12,14 +12,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ValidationResponse {
-	
-	private String field;
-	
-	private String message;
-	
-	@Builder
-	public ValidationResponse(String field, String message) {
-		this.field = field;
-		this.message = message;
-	}
+    private String field;
+
+    private String message;
+
+    @Builder
+    public ValidationResponse(String field, String message) {
+        this.field = field;
+        this.message = message;
+    }
 }

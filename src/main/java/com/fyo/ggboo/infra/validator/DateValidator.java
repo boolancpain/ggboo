@@ -14,18 +14,17 @@ import org.springframework.util.StringUtils;
  * @author boolancpain
  */
 public class DateValidator implements ConstraintValidator<DateConstraint, String> {
-	
-	@Override
-	public boolean isValid(String value, ConstraintValidatorContext context) {
-		try {
-			if(StringUtils.hasText(value)) {
-				// yyyy-MM-dd
-				LocalDate.parse(value, DateTimeFormatter.ISO_DATE);
-			}
-		} catch (Exception e) {
-			return false;
-		}
-		
-		return true;
-	}
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        try {
+            if(StringUtils.hasText(value)) {
+                // yyyy-MM-dd
+                LocalDate.parse(value, DateTimeFormatter.ISO_DATE);
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        
+        return true;
+    }
 }

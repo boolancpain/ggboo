@@ -26,42 +26,41 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @DynamicUpdate
 public class Category extends BaseTimeEntity {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	@Column
-	private Long accountId;
-	
-	@Column(length = 10)
-	private String alias;
-	
-	@Column(nullable = false)
-	private int sequence;
-	
-	@Builder
-	public Category(Long accountId, String alias, int sequence) {
-		this.accountId = accountId;
-		this.alias = alias;
-		this.sequence = sequence;
-	}
-	
-	/**
-	 * 카테고리 명 업데이트
-	 * 
-	 * @param description
-	 */
-	public void updateAlias(String alias) {
-		this.alias = alias;
-	}
-	
-	/**
-	 * 정렬순서 업데이트
-	 * 
-	 * @param sequence
-	 */
-	public void updateSequence(int sequence) {
-		this.sequence = sequence;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
+    private Long accountId;
+
+    @Column(length = 10)
+    private String alias;
+
+    @Column(nullable = false)
+    private int sequence;
+
+    @Builder
+    public Category(Long accountId, String alias, int sequence) {
+        this.accountId = accountId;
+        this.alias = alias;
+        this.sequence = sequence;
+    }
+
+    /**
+     * 카테고리 명 업데이트
+     * 
+     * @param description
+     */
+    public void updateAlias(String alias) {
+        this.alias = alias;
+    }
+
+    /**
+     * 정렬순서 업데이트
+     * 
+     * @param sequence
+     */
+    public void updateSequence(int sequence) {
+        this.sequence = sequence;
+    }
 }

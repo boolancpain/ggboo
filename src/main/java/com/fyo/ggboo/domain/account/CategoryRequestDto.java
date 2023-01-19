@@ -13,28 +13,25 @@ import lombok.Getter;
  * @author boolancpain
  */
 public class CategoryRequestDto {
-	
-	/**
-	 * Category Create Dto
-	 * 
-	 * @author boolancpain
-	 */
-	@Getter
-	static class CategoryCreateDto {
-		
-		@Size(min = 2, max = 10, message = "{validation.category.alias}")
-		private String alias;
-	}
-	
-	/**
-	 * Category Reorder Dto
-	 * 
-	 * @author boolancpain
-	 */
-	@Getter
-	static class CategoryReorderDto {
-		
-		@NotEmpty(message= "{validation.required}")
-		private List<Long> categoryIds;
-	}
+    /**
+     * Category Create Dto
+     * 
+     * @author boolancpain
+     */
+    @Getter
+    static class CategoryCreateDto {
+        @Size(min = 2, max = 10, message = "{validation.category.alias}")
+        private String alias;
+    }
+
+    /**
+     * Category Reorder Dto
+     * 
+     * @author boolancpain
+     */
+    @Getter
+    static class CategoryReorderDto {
+        @NotEmpty(message= "{validation.required}")
+        private List<Long> categoryIds;
+    }
 }

@@ -26,25 +26,24 @@ import com.fyo.ggboo.infra.message.CustomMessageSource;
  */
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
-	
-	@Autowired
-	private CustomMessageSource customMessageSource;
-	
-	@Override
-	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-		// default message source key
-		String key = "unauthorized";
-		
-		if(authException instanceof BadCredentialsException) {
-			key = "member.incorrect";
-		}
-		
-		// 유효한 자격증명을 제공하지 않고 접근할 때 401 에러
-		response.setCharacterEncoding(StandardCharsets.UTF_8.name());
-		response.setStatus(HttpStatus.UNAUTHORIZED.value());
-		response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-		response.getWriter().write(new ObjectMapper().writeValueAsString(BaseResponse.builder()
-				.message(customMessageSource.getMessage(key))
-				.build()));
-	}
+    @Autowired
+    private CustomMessageSource customMessageSource;
+
+    @Override
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+        // default message source key
+        String key = "unauthorized";
+
+        if(authException instanceof BadCredentialsException) {
+            key = "member.incorrect";
+        }
+
+        // 유효한 자격증명을 제공하지 않고 접근할 때 401 에러
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        response.setStatus(HttpStatus.UNAUTHORIZED.value());
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.getWriter().write(new ObjectMapper().writeValueAsString(BaseResponse.builder()
+                .message(customMessageSource.getMessage(key))
+                .build()));
+    }
 }

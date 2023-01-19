@@ -25,18 +25,17 @@ import com.fyo.ggboo.infra.message.CustomMessageSource;
  */
 @Component
 public class JwtAccessDeniedHandler implements AccessDeniedHandler {
-	
-	@Autowired
-	private CustomMessageSource customMessageSource;
-	
-	@Override
-	public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
-		// 필요한 권한 없이 접근할 때 403 에러
-		response.setCharacterEncoding(StandardCharsets.UTF_8.name());
-		response.setStatus(HttpStatus.FORBIDDEN.value());
-		response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-		response.getWriter().write(new ObjectMapper().writeValueAsString(BaseResponse.builder()
-				.message(customMessageSource.getMessage("forbidden"))
-				.build()));
-	}
+    @Autowired
+    private CustomMessageSource customMessageSource;
+
+    @Override
+    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
+        // 필요한 권한 없이 접근할 때 403 에러
+        response.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        response.setStatus(HttpStatus.FORBIDDEN.value());
+        response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        response.getWriter().write(new ObjectMapper().writeValueAsString(BaseResponse.builder()
+                .message(customMessageSource.getMessage("forbidden"))
+                .build()));
+    }
 }
